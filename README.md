@@ -105,30 +105,19 @@ search_and_replace:
   # bosh.healthmonitor.mything: { deployment: gobbledygoop }
 ```
 
-* **metron_agent_deployment_name**: This is the `name` value that is configured for metron_agent. This is sometimes different from the deployment name, namely in PCF deployments
 * **deployment**: This is the `name` value in the deployment manifest for your Runtime deployment.  This can also be found via `bosh deployments`.  NOTE: for Diego deployments, it's assumed that the name of your Diego deployment is `${name_of_cf-deployment}-diego`
 * **bosh_deployment**: If you have a full BOSH deployed in your environment, this is the `name` from its deployment manifest
 * **services_deployment**: Corresponding services name to the BOSH deployment
-* **micro_deployment**: This is the `name` value in the Micro BOSH deployment manifest.
 * **health_screen_image**: Just for fun, this will show up on the main (Runtime) health screen for your environment in the Datadog UI
 
-There are also several email addresses and PagerDuty account names, primarily for monitoring and alerting on PWS.
-
 Threshold values to the templates are defined in `template_thresholds.yml`. These are auto-generated when importing from datadog.
-You should also know that these use default values from `prod`. So, while `prod` environment must have every threshold defined, the other environments only need definitions where overrides are in place.
-
-### Params
-* **alert_header**: This will add a header to each alert. This can be useful to link operator notes or a Github repo for the environment. Note, this is experimental, and using `get_alert_json_erb` will then include the `alert_header` as text.
-
 
 ## Folder structure
 
 ```
 screen_templates/
 ├── images
-├── prod
-├── shared
-├── staging
+├── c2c
 └── tags
 ```
 
@@ -137,12 +126,6 @@ appropriate folder and move the thresholds yaml to the same folder so that the t
 `tags` will contain folders, and if the tag is present in `config.yml`, json/erb files present will be included for that environment.
 
 Edit the resultant json/erb file to make sure that the auto-gsub bit didn't mangle something that wasn't supposed to be static. Check [here for further](lib/screen_synchronizer.rb#L48).
-
-## Useful notes
-Terminology
-* [dashboard](dashboard_templates/README.md)
-* [alert](alert_templates/README.md)
-* [screenboard](screen_templates/README.md).
 
 ### Metric naming conventions
 

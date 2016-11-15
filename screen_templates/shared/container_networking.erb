@@ -1,0 +1,851 @@
+{
+  "board_title": "<%= title %>",
+  "height": 80,
+  "original_title": "<%= title %>",
+  "read_only": false,
+  "shared": false,
+  "template_variables": [
+    {
+      "default": "*",
+      "name": "var",
+      "prefix": null
+    }
+  ],
+  "templated": true,
+  "title_edited": false,
+  "widgets": [
+    {
+      "board_id": 107124,
+      "height": 12,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "markers": [
+          {
+            "dim": "y",
+            "max": 80,
+            "min": null,
+            "type": "ok dashed",
+            "value": "y < 80"
+          },
+          {
+            "dim": "y",
+            "max": null,
+            "min": 80,
+            "type": "error bold",
+            "value": "y > 80"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:cell_z1} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Cell CPU Sys",
+      "type": "timeseries",
+      "width": 33,
+      "x": 0,
+      "y": 57
+    },
+    {
+      "board_id": 107124,
+      "height": 12,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "markers": [
+          {
+            "dim": "y",
+            "max": 80,
+            "min": null,
+            "type": "ok dashed",
+            "value": "y < 80"
+          },
+          {
+            "dim": "y",
+            "max": null,
+            "min": 80,
+            "type": "error bold",
+            "value": "y > 80"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:policy-server} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Policy Server CPU",
+      "type": "timeseries",
+      "width": 31,
+      "x": 99,
+      "y": 57
+    },
+    {
+      "board_id": 107124,
+      "height": 12,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "markers": [
+          {
+            "dim": "y",
+            "max": 80,
+            "min": null,
+            "type": "ok dashed",
+            "value": "y < 80"
+          },
+          {
+            "dim": "y",
+            "max": null,
+            "min": 80,
+            "type": "error bold",
+            "value": "y > 80"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.user{job:cell_z1} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Cell CPU User",
+      "type": "timeseries",
+      "width": 33,
+      "x": 33,
+      "y": 57
+    },
+    {
+      "board_id": 107124,
+      "height": 12,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "markers": [
+          {
+            "dim": "y",
+            "max": 80,
+            "min": null,
+            "type": "ok dashed",
+            "value": "y < 80"
+          },
+          {
+            "dim": "y",
+            "max": null,
+            "min": 80,
+            "type": "error bold",
+            "value": "y > 80"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.wait{job:cell_z1} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Cell CPU Wait",
+      "type": "timeseries",
+      "width": 33,
+      "x": 66,
+      "y": 57
+    },
+    {
+      "board_id": 107124,
+      "height": 12,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:vxlan_policy_agent.policyServerPollTime{job:cell_z1} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Agent Policy-Server Poll Time (ms)",
+      "type": "timeseries",
+      "width": 47,
+      "x": 130,
+      "y": 57
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.mem.percent{job:cell_z1} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Cell Memory (%)",
+      "type": "timeseries",
+      "width": 33,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:gorouter.latency{deployment:<%= bosh_deployment %>}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Router Latency",
+      "type": "timeseries",
+      "width": 31,
+      "x": 99,
+      "y": 38
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:gorouter.total_routes{*}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Total Routes",
+      "type": "timeseries",
+      "width": 31,
+      "x": 99,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:netmon.IPTablesRuleCount{job:cell_z1} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "IPTables Rules Count",
+      "type": "timeseries",
+      "width": 33,
+      "x": 66,
+      "y": 38
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:netmon.NetInterfaceCount{deployment:<%= deployment %>} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Interface Count",
+      "type": "timeseries",
+      "width": 33,
+      "x": 66,
+      "y": 19
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:policy_server.totalPolicies{*}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Total Policies",
+      "type": "timeseries",
+      "width": 33,
+      "x": 33,
+      "y": 38
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:policy_server.uptime{deployment:<%= deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:vxlan_policy_agent.uptime{deployment:<%= deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Uptimes",
+      "type": "timeseries",
+      "width": 33,
+      "x": 0,
+      "y": 19
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:rep.ContainerCount{deployment:<%= deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:rep.GardenContainerCreationDuration{deployment:<%= deployment %>} by {job,index} / 1000 / 1000 / 1000",
+            "type": "area"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Container Count",
+      "type": "timeseries",
+      "width": 33,
+      "x": 66,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:rep.GardenContainerCreationDuration{deployment:<%= deployment %>} by {job,index} / 1000 / 1000 / 1000"
+          }
+        ],
+        "viz": "heatmap"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Container Creation Duration",
+      "type": "timeseries",
+      "width": 33,
+      "x": 0,
+      "y": 38
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:vxlan_policy_agent.containerMetadataTime{job:cell_z1} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Agent Container Metadata Time (ms)",
+      "type": "timeseries",
+      "width": 47,
+      "x": 130,
+      "y": 19
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:vxlan_policy_agent.iptablesEnforceTime{job:cell_z1} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Agent Iptables Enforce Time (ms)",
+      "type": "timeseries",
+      "width": 47,
+      "x": 130,
+      "y": 38
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:vxlan_policy_agent.totalPollTime{job:cell_z1} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Agent Total Poll Time (ms)",
+      "type": "timeseries",
+      "width": 47,
+      "x": 130,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:gorouter.responses{*})",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Router Responses / Second",
+      "type": "timeseries",
+      "width": 31,
+      "x": 99,
+      "y": 19
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:netmon.OverlayRxBytes{job:cell_z1} by {job,index})",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Overlay Rx Bytes",
+      "type": "timeseries",
+      "width": 16,
+      "x": 50,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:netmon.OverlayRxDropped{job:cell_z1} by {job,index})",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Overlay Rx Drops",
+      "type": "timeseries",
+      "width": 16,
+      "x": 50,
+      "y": 19
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:netmon.OverlayTxBytes{job:cell_z1} by {job,index})",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Overlay Tx Bytes",
+      "type": "timeseries",
+      "width": 17,
+      "x": 33,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 17,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:netmon.OverlayTxDropped{job:cell_z1,deployment:<%= deployment %>} by {job,index})",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Overlay Tx Drops",
+      "type": "timeseries",
+      "width": 17,
+      "x": 33,
+      "y": 19
+    }
+  ],
+  "width": "100%"
+}
