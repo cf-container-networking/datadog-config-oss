@@ -86,7 +86,10 @@ Basically the same workflow as dashboards, but with different commands.
         bundle exec rake prod:push
 
 ## config.yml
-Parameters to the rake tasks and templates are defined in `config/config.yml`.  Each environment can have any key values defined. These key value pairs are used for parsing downloaded templates. Any strings that match the values of these key value pairs will be replaced with ERB syntax.
+Parameters to the rake tasks and templates are defined in `config/config.yml`.
+Each environment can have any key values defined.
+These key value pairs are used for parsing downloaded templates. 
+Any strings that match the values of these key value pairs will be replaced with ERB syntax.
 
 ### Search and replace:
 ```
@@ -105,10 +108,10 @@ search_and_replace:
   # bosh.healthmonitor.mything: { deployment: gobbledygoop }
 ```
 
-* **deployment**: This is the `name` value in the deployment manifest for your Runtime deployment.  This can also be found via `bosh deployments`.  NOTE: for Diego deployments, it's assumed that the name of your Diego deployment is `${name_of_cf-deployment}-diego`
+* **deployment**: This is the `name` value in the deployment manifest for your Runtime deployment.  
+This can also be found via `bosh deployments`. 
+NOTE: for Diego deployments, it's assumed that the name of your Diego deployment is `${name_of_cf-deployment}-diego`
 * **bosh_deployment**: If you have a full BOSH deployed in your environment, this is the `name` from its deployment manifest
-* **services_deployment**: Corresponding services name to the BOSH deployment
-* **health_screen_image**: Just for fun, this will show up on the main (Runtime) health screen for your environment in the Datadog UI
 
 Threshold values to the templates are defined in `template_thresholds.yml`. These are auto-generated when importing from datadog.
 
@@ -117,11 +120,11 @@ Threshold values to the templates are defined in `template_thresholds.yml`. Thes
 ```
 screen_templates/
 ├── images
-├── c2c
-└── tags
+├── shared
 ```
 
-The screen_templates folder contains all of the template and thresholds for screen boards.  Templates in the `shared` folder are pushed to all of the environments, while templates in e.g. the `prod` folder will only be pushed to the prod DataDog.  Move the template json/erb file to the
+The screen_templates folder contains all of the template and thresholds for screen boards.
+Templates in the `shared` folder are pushed to all of the environments, while templates in e.g. the `prod` folder will only be pushed to the prod DataDog.  Move the template json/erb file to the
 appropriate folder and move the thresholds yaml to the same folder so that the two files are siblings.
 `tags` will contain folders, and if the tag is present in `config.yml`, json/erb files present will be included for that environment.
 
@@ -137,9 +140,11 @@ Edit the resultant json/erb file to make sure that the auto-gsub bit didn't mang
 Your teammates will thank you.
 
 ### Using Notes in screenboards
-Notes are a fantastic way of creating titles for your various sections. You can use markdown, meaning that you can have your titles serve the dual purpose of displaying a title and being clickable to allow for deeper inspection.
+Notes are a fantastic way of creating titles for your various sections.
+You can use markdown, meaning that you can have your titles serve the dual purpose of displaying a title and being clickable to allow for deeper inspection.
 
-We have implemented import code that will detect such links and translate them between environments. However, the code relies on certain semantics to function. When generating the links, use the following format:
+We have implemented import code that will detect such links and translate them between environments.
+However, the code relies on certain semantics to function. When generating the links, use the following format:
 
 ```
 [Title](/dash/dash/12345) # for dashboards
