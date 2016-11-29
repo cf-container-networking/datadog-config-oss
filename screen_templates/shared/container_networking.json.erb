@@ -22,7 +22,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "markers": [
@@ -47,7 +47,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:cell_z1} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= diego_cell_job %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -71,7 +71,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "markers": [
@@ -120,7 +120,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "markers": [
@@ -145,7 +145,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.user{job:cell_z1} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.user{job:<%= diego_cell_job %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -169,7 +169,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "markers": [
@@ -194,7 +194,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.wait{job:cell_z1} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.wait{job:<%= diego_cell_job %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -218,7 +218,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -227,7 +227,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.policyServerPollTime{job:cell_z1} by {job,index}",
+            "q": "avg:vxlan_policy_agent.policyServerPollTime{job:<%= diego_cell_job %>} by {job,index}",
             "style": {
               "width": "normal"
             },
@@ -254,7 +254,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -263,7 +263,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.mem.percent{job:cell_z1} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -287,7 +287,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -296,7 +296,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:gorouter.latency{deployment:<%= bosh_deployment %>}",
+            "q": "avg:gorouter.latency{deployment:<%= cf_deployment %>}",
             "type": "line"
           }
         ],
@@ -320,7 +320,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -329,7 +329,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:gorouter.total_routes{*}",
+            "q": "avg:gorouter.total_routes{deployment:<%= cf_deployment %>}",
             "type": "line"
           }
         ],
@@ -353,7 +353,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -362,7 +362,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:netmon.IPTablesRuleCount{job:cell_z1} by {job,index}",
+            "q": "avg:netmon.IPTablesRuleCount{job:<%= diego_cell_job %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -386,7 +386,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -395,7 +395,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:netmon.NetInterfaceCount{deployment:<%= deployment %>} by {job,index}",
+            "q": "avg:netmon.NetInterfaceCount{deployment:<%= diego_deployment %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -419,7 +419,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -452,7 +452,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -461,7 +461,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:policy_server.uptime{deployment:<%= deployment %>} by {job,index}",
+            "q": "avg:policy_server.uptime{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -473,7 +473,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.uptime{deployment:<%= deployment %>} by {job,index}",
+            "q": "avg:vxlan_policy_agent.uptime{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -501,7 +501,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -510,7 +510,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:rep.ContainerCount{deployment:<%= deployment %>} by {job,index}",
+            "q": "avg:rep.ContainerCount{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -522,7 +522,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:rep.GardenContainerCreationDuration{deployment:<%= deployment %>} by {job,index} / 1000 / 1000 / 1000",
+            "q": "avg:rep.GardenContainerCreationDuration{deployment:<%= diego_deployment %>} by {job,index} / 1000 / 1000 / 1000",
             "type": "area"
           }
         ],
@@ -546,7 +546,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -555,7 +555,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:rep.GardenContainerCreationDuration{deployment:<%= deployment %>} by {job,index} / 1000 / 1000 / 1000"
+            "q": "avg:rep.GardenContainerCreationDuration{deployment:<%= diego_deployment %>} by {job,index} / 1000 / 1000 / 1000"
           }
         ],
         "viz": "heatmap"
@@ -578,7 +578,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -587,7 +587,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.containerMetadataTime{job:cell_z1} by {job,index}",
+            "q": "avg:vxlan_policy_agent.containerMetadataTime{job:<%= diego_cell_job %>} by {job,index}",
             "style": {
               "width": "normal"
             },
@@ -614,7 +614,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -623,7 +623,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.iptablesEnforceTime{job:cell_z1} by {job,index}",
+            "q": "avg:vxlan_policy_agent.iptablesEnforceTime{job:<%= diego_cell_job %>} by {job,index}",
             "style": {
               "width": "normal"
             },
@@ -650,7 +650,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -659,7 +659,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.totalPollTime{job:cell_z1} by {job,index}",
+            "q": "avg:vxlan_policy_agent.totalPollTime{job:<%= diego_cell_job %>} by {job,index}",
             "style": {
               "width": "normal"
             },
@@ -686,7 +686,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -695,7 +695,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:gorouter.responses{*})",
+            "q": "per_second(avg:gorouter.responses{deployment:<%= cf_deployment %>})",
             "type": "line"
           }
         ],
@@ -719,7 +719,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -728,7 +728,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:netmon.OverlayRxBytes{job:cell_z1} by {job,index})",
+            "q": "per_second(avg:netmon.OverlayRxBytes{job:<%= diego_cell_job %>} by {job,index})",
             "style": {
               "width": "normal"
             },
@@ -755,7 +755,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -764,7 +764,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:netmon.OverlayRxDropped{job:cell_z1} by {job,index})",
+            "q": "per_second(avg:netmon.OverlayRxDropped{job:<%= diego_cell_job %>} by {job,index})",
             "type": "line"
           }
         ],
@@ -788,7 +788,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -797,7 +797,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:netmon.OverlayTxBytes{job:cell_z1} by {job,index})",
+            "q": "per_second(avg:netmon.OverlayTxBytes{job:<%= diego_cell_job %>} by {job,index})",
             "type": "line"
           }
         ],
@@ -821,7 +821,7 @@
       "tile_def": {
         "events": [
           {
-            "q": "tags:deployment:<%= deployment %> test_*"
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
           }
         ],
         "requests": [
@@ -830,7 +830,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:netmon.OverlayTxDropped{job:cell_z1,deployment:<%= deployment %>} by {job,index})",
+            "q": "per_second(avg:netmon.OverlayTxDropped{job:<%= diego_cell_job %>,deployment:<%= diego_deployment %>} by {job,index})",
             "type": "line"
           }
         ],
