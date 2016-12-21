@@ -227,7 +227,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.policyServerPollTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.policyServerPollTime{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "width": "normal"
             },
@@ -296,7 +296,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:gorouter.latency{deployment:<%= cf_deployment %>}",
+            "q": "avg:<%= nozzle %>gorouter.latency{deployment:<%= cf_deployment %>}",
             "type": "line"
           }
         ],
@@ -329,7 +329,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:gorouter.total_routes{deployment:<%= cf_deployment %>}",
+            "q": "avg:<%= nozzle %>gorouter.total_routes{deployment:<%= cf_deployment %>}",
             "type": "line"
           }
         ],
@@ -362,7 +362,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:netmon.IPTablesRuleCount{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>netmon.IPTablesRuleCount{deployment:<%= diego_deployment %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -395,7 +395,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:netmon.NetInterfaceCount{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>netmon.NetInterfaceCount{deployment:<%= diego_deployment %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -428,7 +428,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:policy_server.totalPolicies{<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>policy_server.totalPolicies{<%= diego_deployment %>}",
             "type": "line"
           }
         ],
@@ -461,7 +461,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:policy_server.uptime{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>policy_server.uptime{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -473,7 +473,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.uptime{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.uptime{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -510,7 +510,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:rep.ContainerCount{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>rep.ContainerCount{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -522,7 +522,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:rep.GardenContainerCreationDuration{deployment:<%= diego_deployment %>} by {job,index} / 1000 / 1000 / 1000",
+            "q": "avg:<%= nozzle %>rep.GardenContainerCreationDuration{deployment:<%= diego_deployment %>} by {job,index} / 1000 / 1000 / 1000",
             "type": "area"
           }
         ],
@@ -555,7 +555,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:rep.GardenContainerCreationDuration{deployment:<%= diego_deployment %>} by {job,index} / 1000 / 1000 / 1000"
+            "q": "avg:<%= nozzle %>rep.GardenContainerCreationDuration{deployment:<%= diego_deployment %>} by {job,index} / 1000 / 1000 / 1000"
           }
         ],
         "viz": "heatmap"
@@ -587,7 +587,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.containerMetadataTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.containerMetadataTime{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "width": "normal"
             },
@@ -623,7 +623,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.iptablesEnforceTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.iptablesEnforceTime{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "width": "normal"
             },
@@ -659,7 +659,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:vxlan_policy_agent.totalPollTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.totalPollTime{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "width": "normal"
             },
@@ -695,7 +695,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:gorouter.responses{deployment:<%= cf_deployment %>})",
+            "q": "per_second(avg:<%= nozzle %>gorouter.responses{deployment:<%= cf_deployment %>})",
             "type": "line"
           }
         ],
@@ -728,7 +728,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:netmon.OverlayRxBytes{deployment:<%= diego_deployment %>} by {job,index})",
+            "q": "per_second(avg:<%= nozzle %>netmon.OverlayRxBytes{deployment:<%= diego_deployment %>} by {job,index})",
             "style": {
               "width": "normal"
             },
@@ -764,7 +764,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:netmon.OverlayRxDropped{deployment:<%= diego_deployment %>} by {job,index})",
+            "q": "per_second(avg:<%= nozzle %>netmon.OverlayRxDropped{deployment:<%= diego_deployment %>} by {job,index})",
             "type": "line"
           }
         ],
@@ -797,7 +797,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:netmon.OverlayTxBytes{deployment:<%= diego_deployment %>} by {job,index})",
+            "q": "per_second(avg:<%= nozzle %>netmon.OverlayTxBytes{deployment:<%= diego_deployment %>} by {job,index})",
             "type": "line"
           }
         ],
@@ -830,7 +830,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:netmon.OverlayTxDropped{deployment:<%= diego_deployment %>} by {job,index})",
+            "q": "per_second(avg:<%= nozzle %>netmon.OverlayTxDropped{deployment:<%= diego_deployment %>} by {job,index})",
             "type": "line"
           }
         ],
