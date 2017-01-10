@@ -428,7 +428,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>policy_server.totalPolicies{<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>policy_server.totalPolicies{deployment:<%= diego_deployment %>}",
             "type": "line"
           }
         ],
