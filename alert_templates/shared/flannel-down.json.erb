@@ -1,0 +1,11 @@
+{
+  "escalation_message": null,
+  "message": "flannel watchdog is crashing, the cell needs to be recreated @cf-container-networking@pivotal.io",
+  "name": "flannel watchdog down (<%= environment %>)",
+  "no_data_timeframe": 2,
+  "notify_audit": true,
+  "notify_no_data": false,
+  "query": "max(last_1m):avg:flannel_watchdog.flannelDown{deployment:<%= diego_deployment %>} by {index} >= 0.8",
+  "renotify_interval": 0,
+  "timeout_h": 0
+}
