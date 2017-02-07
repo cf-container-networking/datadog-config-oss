@@ -1,6 +1,9 @@
 {
   "board_title": "<%= title %>",
-  "height": 80,
+  "disableEditing": false,
+  "height": 89,
+  "isIntegration": false,
+  "isShared": false,
   "original_title": "<%= title %>",
   "read_only": false,
   "shared": false,
@@ -16,7 +19,109 @@
   "widgets": [
     {
       "board_id": 107124,
-      "height": 12,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>netmon.NetInterfaceCount{deployment:<%= diego_deployment %>} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Interface Count",
+      "type": "timeseries",
+      "width": 32,
+      "x": 64,
+      "y": 72
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>policy_server.InternalPoliciesQueryTime{deployment:<%= diego_deployment %>} by {index,job}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Internal Policies Index Query Time",
+      "type": "timeseries",
+      "width": 31,
+      "x": 128,
+      "y": 72
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:policy_server.InternalPoliciesRequestTime{deployment:<%= diego_deployment %>} by {index,job}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Internal Policies Index Request Time",
+      "type": "timeseries",
+      "width": 31,
+      "x": 128,
+      "y": 54
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -59,13 +164,13 @@
       "title_size": 16,
       "title_text": "Cell CPU Sys",
       "type": "timeseries",
-      "width": 33,
+      "width": 32,
       "x": 0,
-      "y": 57
+      "y": 36
     },
     {
       "board_id": 107124,
-      "height": 12,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -109,12 +214,12 @@
       "title_text": "Policy Server CPU",
       "type": "timeseries",
       "width": 31,
-      "x": 99,
-      "y": 57
+      "x": 128,
+      "y": 18
     },
     {
       "board_id": 107124,
-      "height": 12,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -157,13 +262,13 @@
       "title_size": 16,
       "title_text": "Cell CPU User",
       "type": "timeseries",
-      "width": 33,
-      "x": 33,
-      "y": 57
+      "width": 32,
+      "x": 0,
+      "y": 54
     },
     {
       "board_id": 107124,
-      "height": 12,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -206,49 +311,13 @@
       "title_size": 16,
       "title_text": "Cell CPU Wait",
       "type": "timeseries",
-      "width": 33,
-      "x": 66,
-      "y": 57
+      "width": 32,
+      "x": 0,
+      "y": 72
     },
     {
       "board_id": 107124,
-      "height": 12,
-      "legend": false,
-      "legend_size": "0",
-      "tile_def": {
-        "events": [
-          {
-            "q": "tags:deployment:<%= diego_deployment %> test_*"
-          }
-        ],
-        "requests": [
-          {
-            "aggregator": "avg",
-            "conditional_formats": [
-
-            ],
-            "q": "avg:<%= nozzle %>vxlan_policy_agent.policyServerPollTime{deployment:<%= diego_deployment %>} by {job,index}",
-            "style": {
-              "width": "normal"
-            },
-            "type": "line"
-          }
-        ],
-        "viz": "timeseries"
-      },
-      "timeframe": "4h",
-      "title": true,
-      "title_align": "left",
-      "title_size": 16,
-      "title_text": "Agent Policy-Server Poll Time (ms)",
-      "type": "timeseries",
-      "width": 47,
-      "x": 130,
-      "y": 57
-    },
-    {
-      "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -275,13 +344,13 @@
       "title_size": 16,
       "title_text": "Cell Memory (%)",
       "type": "timeseries",
-      "width": 33,
+      "width": 32,
       "x": 0,
-      "y": 0
+      "y": 18
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -308,13 +377,13 @@
       "title_size": 16,
       "title_text": "Router Latency",
       "type": "timeseries",
-      "width": 31,
-      "x": 99,
-      "y": 38
+      "width": 32,
+      "x": 64,
+      "y": 0
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -341,13 +410,13 @@
       "title_size": 16,
       "title_text": "Total Routes",
       "type": "timeseries",
-      "width": 31,
-      "x": 99,
+      "width": 32,
+      "x": 0,
       "y": 0
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -374,46 +443,13 @@
       "title_size": 16,
       "title_text": "IPTables Rules Count",
       "type": "timeseries",
-      "width": 33,
-      "x": 66,
-      "y": 38
+      "width": 32,
+      "x": 96,
+      "y": 0
     },
     {
       "board_id": 107124,
-      "height": 17,
-      "legend": false,
-      "legend_size": "0",
-      "tile_def": {
-        "events": [
-          {
-            "q": "tags:deployment:<%= diego_deployment %> test_*"
-          }
-        ],
-        "requests": [
-          {
-            "aggregator": "avg",
-            "conditional_formats": [
-
-            ],
-            "q": "avg:<%= nozzle %>netmon.NetInterfaceCount{deployment:<%= diego_deployment %>} by {job,index}",
-            "type": "line"
-          }
-        ],
-        "viz": "timeseries"
-      },
-      "timeframe": "4h",
-      "title": true,
-      "title_align": "left",
-      "title_size": 16,
-      "title_text": "Interface Count",
-      "type": "timeseries",
-      "width": 33,
-      "x": 66,
-      "y": 19
-    },
-    {
-      "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -440,13 +476,13 @@
       "title_size": 16,
       "title_text": "Total Policies",
       "type": "timeseries",
-      "width": 33,
-      "x": 33,
-      "y": 38
+      "width": 31,
+      "x": 128,
+      "y": 0
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -489,13 +525,13 @@
       "title_size": 16,
       "title_text": "Uptimes",
       "type": "timeseries",
-      "width": 33,
-      "x": 0,
-      "y": 19
+      "width": 32,
+      "x": 64,
+      "y": 18
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -526,13 +562,13 @@
       "title_size": 16,
       "title_text": "Container Count",
       "type": "timeseries",
-      "width": 33,
-      "x": 66,
-      "y": 0
+      "width": 32,
+      "x": 64,
+      "y": 36
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -558,13 +594,13 @@
       "title_size": 16,
       "title_text": "Container Creation Duration (sec)",
       "type": "timeseries",
-      "width": 33,
-      "x": 0,
-      "y": 38
+      "width": 32,
+      "x": 64,
+      "y": 54
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -594,13 +630,13 @@
       "title_size": 16,
       "title_text": "Agent Container Metadata Time (ms)",
       "type": "timeseries",
-      "width": 47,
-      "x": 130,
-      "y": 19
+      "width": 32,
+      "x": 96,
+      "y": 72
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -630,13 +666,49 @@
       "title_size": 16,
       "title_text": "Agent Iptables Enforce Time (ms)",
       "type": "timeseries",
-      "width": 47,
-      "x": 130,
-      "y": 38
+      "width": 32,
+      "x": 96,
+      "y": 36
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.policyServerPollTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Agent Policy-Server Poll Time (ms)",
+      "type": "timeseries",
+      "width": 32,
+      "x": 96,
+      "y": 54
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -666,13 +738,13 @@
       "title_size": 16,
       "title_text": "Agent Total Poll Time (ms)",
       "type": "timeseries",
-      "width": 47,
-      "x": 130,
-      "y": 0
+      "width": 32,
+      "x": 96,
+      "y": 18
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -699,13 +771,13 @@
       "title_size": 16,
       "title_text": "Router Responses / Second",
       "type": "timeseries",
-      "width": 31,
-      "x": 99,
-      "y": 19
+      "width": 32,
+      "x": 32,
+      "y": 0
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -735,13 +807,13 @@
       "title_size": 16,
       "title_text": "Overlay Rx Bytes",
       "type": "timeseries",
-      "width": 16,
-      "x": 50,
-      "y": 0
+      "width": 32,
+      "x": 32,
+      "y": 36
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -768,13 +840,13 @@
       "title_size": 16,
       "title_text": "Overlay Rx Drops",
       "type": "timeseries",
-      "width": 16,
-      "x": 50,
-      "y": 19
+      "width": 32,
+      "x": 32,
+      "y": 72
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -801,13 +873,13 @@
       "title_size": 16,
       "title_text": "Overlay Tx Bytes",
       "type": "timeseries",
-      "width": 17,
-      "x": 33,
-      "y": 0
+      "width": 32,
+      "x": 32,
+      "y": 18
     },
     {
       "board_id": 107124,
-      "height": 17,
+      "height": 16,
       "legend": false,
       "legend_size": "0",
       "tile_def": {
@@ -834,9 +906,9 @@
       "title_size": 16,
       "title_text": "Overlay Tx Drops",
       "type": "timeseries",
-      "width": 17,
-      "x": 33,
-      "y": 19
+      "width": 32,
+      "x": 32,
+      "y": 54
     }
   ],
   "width": "100%"
