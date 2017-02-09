@@ -69,7 +69,15 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>policy_server.InternalPoliciesQueryTime{deployment:<%= diego_deployment %>} by {index,job}",
+            "q": "avg:<%= nozzle %>policy_server.InternalPoliciesError{deployment:<%= diego_deployment %>} by {index,job}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>policy_server.StoreAllError{deployment:<%= diego_deployment %>} by {index,job}",
             "type": "line"
           }
         ],
@@ -79,7 +87,7 @@
       "title": true,
       "title_align": "left",
       "title_size": 16,
-      "title_text": "Internal Policies Index Query Time",
+      "title_text": "Internal Policies Index Errors",
       "type": "timeseries",
       "width": 31,
       "x": 128,
@@ -114,6 +122,40 @@
       "title_align": "left",
       "title_size": 16,
       "title_text": "Internal Policies Index Request Time",
+      "type": "timeseries",
+      "width": 31,
+      "x": 128,
+      "y": 36
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>policy_server.StoreAllTime{deployment:<%= diego_deployment %>} by {index,job}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "List All Policies DB Query Time",
       "type": "timeseries",
       "width": 31,
       "x": 128,
