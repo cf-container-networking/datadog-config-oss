@@ -69,7 +69,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>policy_server.InternalPoliciesError{deployment:<%= diego_deployment %>} by {index,job}",
+            "q": "avg:<%= nozzle %>policy_server.policies-index-internal-error{deployment:<%= diego_deployment %>} by {index,job}",
             "type": "line"
           },
           {
