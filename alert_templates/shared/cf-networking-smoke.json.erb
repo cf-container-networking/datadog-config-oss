@@ -1,0 +1,11 @@
+{
+  "escalation_message": null,
+  "message": "smoke test failures indicate c2c networking is not functioning @cf-container-networking@pivotal.io",
+  "name": "smoke test failures (<%= environment %>)",
+  "no_data_timeframe": null,
+  "notify_audit": true,
+  "notify_no_data": false,
+  "query": "max(last_30m):avg:cf_networking_smoke.status{deployment:<%= environment %>} by {deployment} >= 0.5",
+  "renotify_interval": 0,
+  "timeout_h": 0
+}
