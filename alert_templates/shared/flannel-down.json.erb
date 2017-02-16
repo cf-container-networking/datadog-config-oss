@@ -5,7 +5,7 @@
   "no_data_timeframe": 2,
   "notify_audit": true,
   "notify_no_data": false,
-  "query": "max(last_1m):avg:flannel_watchdog.flannelDown{deployment:<%= diego_deployment %>} by {index} >= 0.8",
+  "query": "max(last_1m):avg:<%= nozzle %>flannel_watchdog.flannelDown{deployment:<%= diego_deployment %>} by {index} >= 0.8",
   "renotify_interval": 0,
   "timeout_h": 0
 }
