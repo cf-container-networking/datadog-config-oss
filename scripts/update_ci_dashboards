@@ -8,5 +8,6 @@ ln -s ../../container-networking-deployments/datadog/config.yml config/config.ym
 bundle exec rake toque:push
 bundle exec rake pickelhelm:push
 bundle exec rake mitre:push
+bundle exec rake a1:push
 
 rm -f config/config.yml
