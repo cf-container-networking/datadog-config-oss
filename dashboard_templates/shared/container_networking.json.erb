@@ -1,0 +1,650 @@
+{
+  "description": "container networking metrics",
+  "graphs": [
+    {
+      "definition": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>netmon.NetInterfaceCount{deployment:<%= diego_deployment %>} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Interface Count"
+    },
+    {
+      "definition": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>policy_server.policies_index_internal_error{deployment:<%= diego_deployment %>} by {index,job}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>policy_server.StoreAllError{deployment:<%= diego_deployment %>} by {index,job}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Internal Policies Index Errors"
+    },
+    {
+      "definition": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:policy_server.InternalPoliciesRequestTime{deployment:<%= diego_deployment %>} by {index,job}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Internal Policies Index Request Time"
+    },
+    {
+      "definition": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>policy_server.StoreAllTime{deployment:<%= diego_deployment %>} by {index,job}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "List All Policies DB Query Time"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "markers": [
+          {
+            "dim": "y",
+            "max": 80,
+            "min": null,
+            "type": "ok dashed",
+            "value": "y < 80"
+          },
+          {
+            "dim": "y",
+            "max": null,
+            "min": 80,
+            "type": "error bold",
+            "value": "y > 80"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= diego_cell_job %>} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Cell CPU Sys"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "markers": [
+          {
+            "dim": "y",
+            "max": 80,
+            "min": null,
+            "type": "ok dashed",
+            "value": "y < 80"
+          },
+          {
+            "dim": "y",
+            "max": null,
+            "min": 80,
+            "type": "error bold",
+            "value": "y > 80"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:policy-server} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Policy Server CPU"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "markers": [
+          {
+            "dim": "y",
+            "max": 80,
+            "min": null,
+            "type": "ok dashed",
+            "value": "y < 80"
+          },
+          {
+            "dim": "y",
+            "max": null,
+            "min": 80,
+            "type": "error bold",
+            "value": "y > 80"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.user{job:<%= diego_cell_job %>} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Cell CPU User"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "markers": [
+          {
+            "dim": "y",
+            "max": 80,
+            "min": null,
+            "type": "ok dashed",
+            "value": "y < 80"
+          },
+          {
+            "dim": "y",
+            "max": null,
+            "min": 80,
+            "type": "error bold",
+            "value": "y > 80"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.wait{job:<%= diego_cell_job %>} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Cell CPU Wait"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Cell Memory (%)"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>gorouter.latency{deployment:<%= cf_deployment %>}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Router Latency"
+    },
+    {
+      "definition": {
+        "autoscale":true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>gorouter.total_routes{deployment:<%= cf_deployment %>}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Total Routes"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>netmon.IPTablesRuleCount{deployment:<%= diego_deployment %>} by {job,index}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "IPTables Rules Count"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>policy_server.totalPolicies{deployment:<%= diego_deployment %>}",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Total Policies"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>policy_server.uptime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.uptime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Uptimes"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>rep.ContainerCount{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Container Count"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>rep.GardenContainerCreationDuration{deployment:<%= diego_deployment %>} by {job,index} / 1000 / 1000 / 1000"
+          }
+        ],
+        "viz": "heatmap"
+      },
+      "title": "Container Creation Duration (sec)"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.containerMetadataTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Agent Container Metadata Time (ms)"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.iptablesEnforceTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Agent Iptables Enforce Time (ms)"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.policyServerPollTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Agent Policy-Server Poll Time (ms)"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>vxlan_policy_agent.totalPollTime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Agent Total Poll Time (ms)"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:<%= nozzle %>gorouter.responses{deployment:<%= cf_deployment %>})",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Router Responses / Second"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:<%= nozzle %>netmon.OverlayRxBytes{deployment:<%= diego_deployment %>} by {job,index})",
+            "style": {
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Overlay Rx Bytes"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:<%= nozzle %>netmon.OverlayRxDropped{deployment:<%= diego_deployment %>} by {job,index})",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Overlay Rx Drops"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:<%= nozzle %>netmon.OverlayTxBytes{deployment:<%= diego_deployment %>} by {job,index})",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Overlay Tx Bytes"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_second(avg:<%= nozzle %>netmon.OverlayTxDropped{deployment:<%= diego_deployment %>} by {job,index})",
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Overlay Tx Drops"
+    }
+  ],
+  "read_only": false,
+  "template_variables": [
+    {
+      "default": "*",
+      "name": "var",
+      "prefix": null
+    }
+  ],
+  "title": "<%= title %> Timeboard"
+}
