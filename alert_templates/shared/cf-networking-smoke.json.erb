@@ -5,7 +5,7 @@
   "no_data_timeframe": null,
   "notify_audit": true,
   "notify_no_data": false,
-  "query": "max(last_30m):avg:cf_networking_smoke.status{deployment:<%= diego_deployment %>} by {deployment} >= 0.5",
+  "query": "min(last_30m):avg:cf_networking_smoke.status{deployment:<%= diego_deployment %>} by {deployment} >= 0.5",
   "renotify_interval": 0,
   "timeout_h": 0
 }
