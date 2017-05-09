@@ -401,6 +401,31 @@
             "conditional_formats": [
 
             ],
+            "q": "avg:<%= nozzle %>silk_daemon.uptime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Silk Daemon Uptime (s)"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
             "q": "avg:<%= nozzle %>rep.ContainerCount{deployment:<%= diego_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic",

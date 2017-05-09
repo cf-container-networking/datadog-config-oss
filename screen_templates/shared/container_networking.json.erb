@@ -23,6 +23,43 @@
       "legend": false,
       "legend_size": "0",
       "tile_def": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_daemon.uptime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Silk Daemon Uptime (s)",
+      "type": "timeseries",
+      "width": 32,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
         "autoscale": true,
         "events": [
           {
@@ -421,39 +458,6 @@
       "type": "timeseries",
       "width": 32,
       "x": 64,
-      "y": 0
-    },
-    {
-      "board_id": 107124,
-      "height": 16,
-      "legend": false,
-      "legend_size": "0",
-      "tile_def": {
-        "events": [
-          {
-            "q": "tags:deployment:<%= diego_deployment %> test_*"
-          }
-        ],
-        "requests": [
-          {
-            "aggregator": "avg",
-            "conditional_formats": [
-
-            ],
-            "q": "avg:<%= nozzle %>gorouter.total_routes{deployment:<%= cf_deployment %>}",
-            "type": "line"
-          }
-        ],
-        "viz": "timeseries"
-      },
-      "timeframe": "4h",
-      "title": true,
-      "title_align": "left",
-      "title_size": 16,
-      "title_text": "Total Routes",
-      "type": "timeseries",
-      "width": 32,
-      "x": 0,
       "y": 0
     },
     {
