@@ -3,7 +3,7 @@
 set -e -u
 
 rm -f config/config.yml
-ln -s ../../container-networking-pws/datadog/config.yml config/config.yml
+ln -s ../../pcf-networking-pws/datadog/config.yml config/config.yml
 
 bundle exec rake pws:push
 
