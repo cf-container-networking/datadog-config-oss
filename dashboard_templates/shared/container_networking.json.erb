@@ -736,6 +736,31 @@
         "viz": "timeseries"
       },
       "title": "Overlay Tx Drops"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.uptime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Silk Controller Uptime (s)"
     }
   ],
   "read_only": false,
