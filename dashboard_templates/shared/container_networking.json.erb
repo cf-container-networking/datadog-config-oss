@@ -836,6 +836,144 @@
         "viz": "timeseries"
       },
       "title": "Silk Controller Stale Leases"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.LeasesIndexRequestTime{deployment:<%= diego_deployment %>}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.LeasesRenewRequestTime{deployment:<%= diego_deployment %>}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.LeasesAcquireRequestTime{deployment:<%= diego_deployment %>}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.LeasesReleaseRequestTime{deployment:<%= diego_deployment %>}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Silk Controller Handler Times"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.LeasesIndexRequestCount{deployment:<%= diego_deployment %>}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.LeasesRenewRequestCount{deployment:<%= diego_deployment %>}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.LeasesAcquireRequestCount{deployment:<%= diego_deployment %>}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.LeasesReleaseRequestCount{deployment:<%= diego_deployment %>}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Silk Controller Handler Counts"
+    },
+    {
+      "definition": {
+        "events": [
+          {
+            "q": "tags:deployment:<%= diego_deployment %> test_*"
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:<%= nozzle %>silk_controller.http_error{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "title": "Silk Controller HTTP Errors"
     }
   ],
   "read_only": false,
