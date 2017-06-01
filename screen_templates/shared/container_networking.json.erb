@@ -805,7 +805,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_second(avg:<%= nozzle %>gorouter.responses{deployment:<%= cf_deployment %>})",
+            "q": "avg:<%= nozzle %>silk_controller.uptime{deployment:<%= cf_deployment %>} by {job,index}",
             "type": "line"
           }
         ],
@@ -815,7 +815,7 @@
       "title": true,
       "title_align": "left",
       "title_size": 16,
-      "title_text": "Router Responses / Second",
+      "title_text": "Silk Controller Uptime",
       "type": "timeseries",
       "width": 32,
       "x": 32,
