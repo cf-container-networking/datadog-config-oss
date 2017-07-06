@@ -37,21 +37,13 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>policy_server.policies_index_internal_error{deployment:<%= diego_deployment %>} by {index,job}",
-            "type": "line"
-          },
-          {
-            "aggregator": "avg",
-            "conditional_formats": [
-
-            ],
             "q": "avg:<%= nozzle %>policy_server.StoreAllError{deployment:<%= diego_deployment %>} by {index,job}",
             "type": "line"
           }
         ],
         "viz": "timeseries"
       },
-      "title": "Internal Policies Index Errors"
+      "title": "Policy Server Errors"
     },
     {
       "definition": {
@@ -67,7 +59,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:policy_server.InternalPoliciesRequestTime{deployment:<%= diego_deployment %>} by {index,job}",
+            "q": "avg:<%= nozzle %>policy_server.InternalPoliciesRequestTime{deployment:<%= diego_deployment %>} by {index,job}",
             "type": "line"
           }
         ],
@@ -126,7 +118,23 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= diego_cell_job %>} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= diego_cell_job %>_z1} by {job,index}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= diego_cell_job %>_z2} by {job,index}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= diego_cell_job %>_z3} by {job,index}",
             "type": "line"
           }
         ],
@@ -200,7 +208,23 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.user{job:<%= diego_cell_job %>} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.user{job:<%= diego_cell_job %>_z1} by {job,index}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.user{job:<%= diego_cell_job %>_z2} by {job,index}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.user{job:<%= diego_cell_job %>_z3} by {job,index}",
             "type": "line"
           }
         ],
@@ -237,7 +261,23 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.wait{job:<%= diego_cell_job %>} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.wait{job:<%= diego_cell_job %>_z1} by {job,index}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.wait{job:<%= diego_cell_job %>_z2} by {job,index}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.wait{job:<%= diego_cell_job %>_z3} by {job,index}",
             "type": "line"
           }
         ],
@@ -258,7 +298,23 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>_z1} by {job,index}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>_z2} by {job,index}",
+            "type": "line"
+          },
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>_z3} by {job,index}",
             "type": "line"
           }
         ],
