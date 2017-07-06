@@ -496,11 +496,27 @@
         ],
         "requests": [
           {
+            "q": "avg:<%= nozzle %>silk_controller.LeasesIndexRequestTime{deployment:<%= diego_deployment %>}",
             "aggregator": "avg",
-            "conditional_formats": [
-
-            ],
-            "q": "avg:<%= nozzle %>gorouter.latency{deployment:<%= cf_deployment %>}",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "avg:<%= nozzle %>silk_controller.LeasesRenewRequestTime{deployment:<%= diego_deployment %>}",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "avg:<%= nozzle %>silk_controller.LeasesAcquireRequestTime{deployment:<%= diego_deployment %>}",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "avg:<%= nozzle %>silk_controller.LeasesReleaseRequestTime{deployment:<%= diego_deployment %>}",
+            "aggregator": "avg",
+            "conditional_formats": [],
             "type": "line"
           }
         ],
@@ -510,7 +526,7 @@
       "title": true,
       "title_align": "left",
       "title_size": 16,
-      "title_text": "Router Latency",
+      "title_text": "Silk Controller Handler Times (ms)",
       "type": "timeseries",
       "width": 32,
       "x": 64,
@@ -625,7 +641,7 @@
       "title": true,
       "title_align": "left",
       "title_size": 16,
-      "title_text": "Uptimes",
+      "title_text": "Policy Server/Agent Uptimes",
       "type": "timeseries",
       "width": 32,
       "x": 64,
