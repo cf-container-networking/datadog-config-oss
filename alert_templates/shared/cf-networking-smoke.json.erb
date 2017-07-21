@@ -5,7 +5,11 @@
   "no_data_timeframe": null,
   "notify_audit": true,
   "notify_no_data": <%= cf_deployment == "cf-cfapps-io2" || cf_deployment == "mitre.c2c.cf-app.com" %>,
-  "no_data_timeframe": 30,
+  <% if cf_deployment == "cf-cfapps-io2" %>
+    "no_data_timeframe": 30,
+  <% else %>
+    "no_data_timeframe": 90,
+  <% end %>
   "query": "min(last_30m):avg:cf_networking_smoke.status{deployment:<%= diego_deployment %>} by {deployment} >= 0.5",
   "renotify_interval": 0,
   "timeout_h": 0
