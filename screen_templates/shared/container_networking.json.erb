@@ -451,23 +451,11 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>_z1} by {job,index}",
-            "type": "line"
-          },
-          {
-            "aggregator": "avg",
-            "conditional_formats": [
-
-            ],
-            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>_z2} by {job,index}",
-            "type": "line"
-          },
-          {
-            "aggregator": "avg",
-            "conditional_formats": [
-
-            ],
-            "q": "avg:bosh.healthmonitor.system.mem.percent{job:<%= diego_cell_job %>_z3} by {job,index}",
+            "q": "avg:<%= nozzle %>iptables_logger.uptime{deployment:<%= diego_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "width": "thick"
+            },
             "type": "line"
           }
         ],
@@ -477,7 +465,7 @@
       "title": true,
       "title_align": "left",
       "title_size": 16,
-      "title_text": "Cell Memory (%)",
+      "title_text": "IPTables Logger Uptime (s)",
       "type": "timeseries",
       "width": 32,
       "x": 0,
