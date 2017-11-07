@@ -140,7 +140,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>policy_server.InternalPoliciesRequestTime{deployment:<%= cf_deployment %>} by {index,job}",
+            "q": "avg:<%= nozzle %>policy_server_internal.InternalPoliciesRequestTime{deployment:<%= cf_deployment %>} by {index,job}",
             "type": "line"
           }
         ],
@@ -288,7 +288,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:policy-server} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:api} by {job,index}",
             "type": "line"
           }
         ],
@@ -298,7 +298,7 @@
       "title": true,
       "title_align": "left",
       "title_size": 16,
-      "title_text": "Policy Server CPU",
+      "title_text": "API CPU (co-located Policy Server)",
       "type": "timeseries",
       "width": 31,
       "x": 128,
