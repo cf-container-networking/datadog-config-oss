@@ -81,7 +81,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>policy_server.StoreAllTime{deployment:<%= cf_deployment %>} by {index,job}",
+            "q": "avg:<%= nozzle %>policy_server.StoreAllSuccessTime{deployment:<%= cf_deployment %>} by {index,job}",
             "type": "line"
           }
         ],
@@ -810,7 +810,7 @@
       "definition": {
         "events": [
           {
-            "q": "tags:deployment:<%= diego_deployment %> test_*"
+            "q": "tags:deployment:<%= cf_deployment %> test_*"
           }
         ],
         "requests": [
@@ -819,7 +819,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>silk_controller.freeLeases{deployment:<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>silk_controller.freeLeases{deployment:<%= cf_deployment %>}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -835,7 +835,7 @@
       "definition": {
         "events": [
           {
-            "q": "tags:deployment:<%= diego_deployment %> test_*"
+            "q": "tags:deployment:<%= cf_deployment %> test_*"
           }
         ],
         "requests": [
@@ -844,7 +844,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>silk_controller.totalLeases{deployment:<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>silk_controller.totalLeases{deployment:<%= cf_deployment %>}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -860,7 +860,7 @@
       "definition": {
         "events": [
           {
-            "q": "tags:deployment:<%= diego_deployment %> test_*"
+            "q": "tags:deployment:<%= cf_deployment %> test_*"
           }
         ],
         "requests": [
@@ -869,7 +869,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>silk_controller.staleLeases{deployment:<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>silk_controller.staleLeases{deployment:<%= cf_deployment %>}",
             "style": {
               "palette": "dog_classic",
               "width": "thick"
@@ -942,7 +942,7 @@
       "definition": {
         "events": [
           {
-            "q": "tags:deployment:<%= diego_deployment %> test_*"
+            "q": "tags:deployment:<%= cf_deployment %> test_*"
           }
         ],
         "requests": [
@@ -951,7 +951,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>silk_controller.LeasesIndexRequestCount{deployment:<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>silk_controller.LeasesIndexRequestCount{deployment:<%= cf_deployment %>}",
             "style": {
               "palette": "dog_classic"
             },
@@ -962,7 +962,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>silk_controller.LeasesRenewRequestCount{deployment:<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>silk_controller.LeasesRenewRequestCount{deployment:<%= cf_deployment %>}",
             "style": {
               "palette": "dog_classic"
             },
@@ -973,7 +973,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>silk_controller.LeasesAcquireRequestCount{deployment:<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>silk_controller.LeasesAcquireRequestCount{deployment:<%= cf_deployment %>}",
             "style": {
               "palette": "dog_classic"
             },
@@ -984,7 +984,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>silk_controller.LeasesReleaseRequestCount{deployment:<%= diego_deployment %>}",
+            "q": "avg:<%= nozzle %>silk_controller.LeasesReleaseRequestCount{deployment:<%= cf_deployment %>}",
             "style": {
               "palette": "dog_classic"
             },
@@ -999,7 +999,7 @@
       "definition": {
         "events": [
           {
-            "q": "tags:deployment:<%= diego_deployment %> test_*"
+            "q": "tags:deployment:<%= cf_deployment %> test_*"
           }
         ],
         "requests": [
@@ -1008,7 +1008,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>silk_controller.http_error{deployment:<%= diego_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>silk_controller.http_error{deployment:<%= cf_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic"
             },
