@@ -8,6 +8,8 @@ ln -s ../../cf-networking-deployments/datadog/config.yml config/config.yml
 bundle exec rake toque:push
 bundle exec rake pickelhelm:push
 bundle exec rake mitre:push
+bundle exec rake ushanka:push
+bundle exec rake beret:push
 bundle exec rake a1:push
 
 rm -f config/config.yml

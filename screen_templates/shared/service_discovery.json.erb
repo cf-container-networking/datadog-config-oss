@@ -1,0 +1,413 @@
+{
+  "board_title": "<%= title %>",
+  "created_by": {
+    "access_role": "adm",
+    "disabled": false,
+    "email": "<%= alert_email %>",
+    "handle": "<%= alert_email %>",
+    "icon": "https://secure.gravatar.com/avatar/9cffa6747e9b0431ea2a202947aed704?s=48&d=retro",
+    "is_admin": true,
+    "name": "CF Container Networking",
+    "role": null,
+    "verified": true
+  },
+  "disableCog": false,
+  "disableEditing": false,
+  "height": 89,
+  "isIntegration": false,
+  "isShared": false,
+  "original_title": "<%= title %>",
+  "read_only": false,
+  "shared": false,
+  "template_variables": [
+    {
+      "default": "*",
+      "name": "var",
+      "prefix": null
+    }
+  ],
+  "templated": true,
+  "title_edited": false,
+  "widgets": [
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "events": [
+          {
+            "q": "tags:deployment:<%= cf_deployment %> test_* "
+          }
+        ],
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= cf_deployment %>,job:<%= nats_job %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "NATS CPU",
+      "type": "timeseries",
+      "width": 32,
+      "x": 32,
+      "y": 36
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= cf_deployment %>,job:<%= router_job %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Router CPU",
+      "type": "timeseries",
+      "width": 32,
+      "x": 0,
+      "y": 36
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:cf_app_sd_smoke.ResolveAddSuccess{deployment:<%= cf_deployment %>}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Smoke Test Add Success (0 if healthy)",
+      "type": "timeseries",
+      "width": 32,
+      "x": 64,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= cf_deployment %>}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Smoke Test Delete Success (0 if healthy)",
+      "type": "timeseries",
+      "width": 32,
+      "x": 96,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= cf_deployment %>,job:<%= diego_cell_job %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Diego Cell CPU",
+      "type": "timeseries",
+      "width": 32,
+      "x": 64,
+      "y": 36
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:cloudfoundry.nozzle.bosh_dns_adapter.uptime{deployment:<%= cf_deployment %>} by {index,job}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "BOSH DNS Adapter Uptime (s)",
+      "type": "timeseries",
+      "width": 32,
+      "x": 32,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:cloudfoundry.nozzle.bosh_dns_adapter.DNSRequestFailures{deployment:<%= cf_deployment %>}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "BOSH DNS Adapter DNS Request Failures",
+      "type": "timeseries",
+      "width": 32,
+      "x": 32,
+      "y": 18
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:cloudfoundry.nozzle.service_discovery_controller.dnsRequest{deployment:<%= cf_deployment %>} by {ip}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Service Discovery Controller DNS Requests",
+      "type": "timeseries",
+      "width": 32,
+      "x": 0,
+      "y": 18
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "avg:cloudfoundry.nozzle.service_discovery_controller.uptime{deployment:<%= cf_deployment %>} by {job,index}",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Service Discovery Controller Uptime (s)",
+      "type": "timeseries",
+      "width": 32,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_minute(avg:cloudfoundry.nozzle.HTTPRouteNATSMessagesEmitted{deployment:<%= cf_deployment %>})",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "HTTP Route NATS Msgs Emitted / Min",
+      "type": "timeseries",
+      "width": 32,
+      "x": 96,
+      "y": 18
+    },
+    {
+      "board_id": 107124,
+      "height": 16,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+
+            ],
+            "q": "per_minute(avg:cloudfoundry.nozzle.InternalRouteNATSMessagesEmitted{deployment:<%= cf_deployment %>})",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": "line"
+          }
+        ],
+        "viz": "timeseries"
+      },
+      "timeframe": "4h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "Internal Route NATS Msgs Emitted / Min",
+      "type": "timeseries",
+      "width": 32,
+      "x": 64,
+      "y": 18
+    }
+  ],
+  "width": "100%"
+}
