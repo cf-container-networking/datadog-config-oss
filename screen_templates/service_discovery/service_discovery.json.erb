@@ -115,7 +115,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:cf_app_sd_smoke.ResolveAddSuccess{deployment:<%= cf_deployment %>}",
+            "q": "avg:cf_app_sd_smoke.ResolveAddSuccess{*}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -149,7 +149,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= cf_deployment %>}",
+            "q": "avg:cf_app_sd_smoke.ResolveDeleteSuccess{*}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -183,7 +183,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= cf_deployment %>,job:<%= diego_cell_job %>} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= diego_cell_deployment %>,job:<%= diego_cell_job %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -217,7 +217,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:cloudfoundry.nozzle.bosh_dns_adapter.uptime{deployment:<%= cf_deployment %>} by {index,job}",
+            "q": "avg:<%= nozzle %>bosh_dns_adapter.uptime{deployment:<%= diego_cell_deployment %>} by {index,job}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -251,7 +251,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:cloudfoundry.nozzle.bosh_dns_adapter.DNSRequestFailures{deployment:<%= cf_deployment %>}",
+            "q": "avg:<%= nozzle %>bosh_dns_adapter.DNSRequestFailures{deployment:<%= cf_deployment %>}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -285,7 +285,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:cloudfoundry.nozzle.service_discovery_controller.dnsRequest{deployment:<%= cf_deployment %>} by {ip}",
+            "q": "avg:<%= nozzle %>service_discovery_controller.dnsRequest{deployment:<%= cf_deployment %>} by {ip}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -319,7 +319,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:cloudfoundry.nozzle.service_discovery_controller.uptime{deployment:<%= cf_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>service_discovery_controller.uptime{deployment:<%= cf_deployment %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -353,7 +353,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_minute(avg:cloudfoundry.nozzle.HTTPRouteNATSMessagesEmitted{deployment:<%= cf_deployment %>})",
+            "q": "per_minute(avg:<%= nozzle %>route_emitter.HTTPRouteNATSMessagesEmitted{deployment:<%= diego_cell_deployment %>})",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -387,7 +387,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_minute(avg:cloudfoundry.nozzle.InternalRouteNATSMessagesEmitted{deployment:<%= cf_deployment %>})",
+            "q": "per_minute(avg:<%= nozzle %>route_emitter.InternalRouteNATSMessagesEmitted{deployment:<%= diego_cell_deployment %>})",
             "style": {
               "palette": "dog_classic",
               "type": "solid",

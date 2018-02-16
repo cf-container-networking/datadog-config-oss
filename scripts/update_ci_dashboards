@@ -7,11 +7,12 @@ ln -s ../../cf-networking-deployments/datadog/config.yml config/config.yml
 
 # the push rake task will push a screen for every template in the screen_templates dir
 cp screen_templates/container_networking/container_networking.json.erb screen_templates/shared/
+cp dashboard_templates/container_networking/container_networking.json.erb dashboard_templates/shared/
 bundle exec rake toque:push
 bundle exec rake pickelhelm:push
 bundle exec rake mitre:push
-bundle exec rake a1:push
 rm screen_templates/shared/container_networking.json.erb
+rm dashboard_templates/shared/container_networking.json.erb
 
 cp screen_templates/service_discovery/service_discovery.json.erb screen_templates/shared/
 bundle exec rake ushanka:push

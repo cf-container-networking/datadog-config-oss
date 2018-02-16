@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e -u
+
+rm -f config/config.yml
+ln -s ../../pcf-networking-pws/datadog/config.yml config/config.yml
+
+cp -p screen_templates/service_discovery/service_discovery.json.erb screen_templates/shared/
+bundle exec rake pws_sd:push
+rm screen_templates/shared/service_discovery.json.erb
+
+rm -f config/config.yml
