@@ -407,6 +407,108 @@
       "width": 32,
       "x": 64,
       "y": 18
+    },
+    {
+      "autoscale": true,
+      "board_id": 288267,
+      "height": 16,
+      "isShared": false,
+      "legend": false,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "custom_unit": "%",
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+              {
+                "comparator": "<=",
+                "palette": "white_on_red",
+                "value": "70"
+              },
+              {
+                "comparator": "<=",
+                "palette": "white_on_yellow",
+                "value": "90"
+              },
+              {
+                "comparator": ">",
+                "palette": "white_on_green",
+                "value": "90"
+              }
+            ],
+            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{*})*100",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": null
+          }
+        ],
+        "viz": "query_value"
+      },
+      "timeframe": "1h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "% SmokeTest Delete Success Passing (past 1h)",
+      "type": "query_value",
+      "width": 32,
+      "x": 0,
+      "y": 53
+    },
+    {
+      "autoscale": true,
+      "board_id": 288267,
+      "height": 16,
+      "isShared": false,
+      "legend": true,
+      "legend_size": "0",
+      "tile_def": {
+        "autoscale": true,
+        "custom_unit": "%",
+        "requests": [
+          {
+            "aggregator": "avg",
+            "conditional_formats": [
+              {
+                "comparator": "<=",
+                "palette": "white_on_red",
+                "value": "70"
+              },
+              {
+                "comparator": "<=",
+                "palette": "white_on_yellow",
+                "value": "90"
+              },
+              {
+                "comparator": ">",
+                "palette": "white_on_green",
+                "value": "90"
+              }
+            ],
+            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{*})*100",
+            "style": {
+              "palette": "dog_classic",
+              "type": "solid",
+              "width": "normal"
+            },
+            "type": null
+          }
+        ],
+        "viz": "query_value"
+      },
+      "timeframe": "1h",
+      "title": true,
+      "title_align": "left",
+      "title_size": 16,
+      "title_text": "% SmokeTest AddSuccess Passing (past 1h)",
+      "type": "query_value",
+      "width": 32,
+      "x": 96,
+      "y": 36
     }
   ],
   "width": "100%"

@@ -2,6 +2,77 @@
 
 Persist your DataDog configuration in versioned text files which can be edited locally. Pull down existing config and push changes at will.
 
+
+## CF Networking Tips and Tricks for Datadog
+
+### Main Screenboards
+
+[Service Discovery PWS Screenboard](https://is.gd/cfnetworkingdatadogsd)
+
+[Networking PWS Screenboard](https://is.gd/cfnetworkingdatadog)
+
+Our environment screenboards can be found by logging into datadog
+with either your personal account or cf-container-networking@pivotal.io.
+
+### Items in this repo
+In this repository are three main datadog concepts: alerts, screenboards, and dashboards.
+
+Alerts are used to let the team know when a metric is behaving unexpectedly through email.
+The alerts are found in the `alert_templates` folder.
+
+Dashboards (also known as timeboards) are boards where all metrics are scoped to the same
+time-scale. We do not use dashboards as often as screenboards. However, our dashboards
+can be found in the `dashboard_templates` folder.
+
+Screenboards are boards where metrics can be configured to use different time frames. We
+prefer to use screenboards and would recommend doing so for new boards. The screenboards
+can be found in the `screenboard_templates` folder.
+
+### How this repo works with rake / repo organization
+Our scripts for applying our templates to datadog can be found in the `scripts` folder.
+The scripts take care of setting up the proper config and location for the templates.
+
+Note that the way the rake tasks work is that they will push any template in the `shared`
+folder. This is why our scripts move relevant templates in and out of the shared folder
+depending on the environment.
+
+The rake tasks for the environments are created through meta-programming. You should
+never need to add a new rake task.
+
+### Making a new dashboard / adding widgets
+
+We have not been able to find any docs on the json templating that datadog uses. We recommend following these steps: 
+
+#### New dashboard
+
+1. Create the new dashboard manually on the datadog website
+1. Follow the steps below for importing a datadog template
+1. Replace any relavent values with variables
+1. Add those variables to the config you are using
+1. Delete the manually created dashboard
+1. Push the new dashboard using the template and check that it works
+
+#### New widget
+
+1. Create the widget manually on the datadog website
+1. Follow the steps below for important a datadog template, but save to a temp file
+1. Copy the json for the new widget into the existing dashboard template
+1. Delete the manually created widget
+1. Push the updated dashboard and see that it works
+
+### Links to config repos
+
+[CI Environment Configs](https://github.com/cloudfoundry/cf-networking-deployments/tree/master/datadog)
+
+[PWS Environment Config](https://github.com/pivotal-cf/pcf-networking-pws/tree/master/datadog)
+
+### Metrics explorer is your friend
+If you are ever wondering what a metric is called, or what tags are on the metric, go to Metrics -> Explorer
+on the datadog website to find out. No need to create a new graph for it :)
+
+
+## Docs from original repo
+
 ### Updating to version 2.x
 [ ]  Add a key to your environment name called 'tags'  
 [ ]  Populate an array of tags in this key.   

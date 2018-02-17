@@ -5,6 +5,13 @@ set -e -u
 rm -f config/config.yml
 ln -s ../../pcf-networking-pws/datadog/config.yml config/config.yml
 
+cp alert_templates/cf_networking_smoke/cf-networking-smoke.json.erb alert_templates/shared/
+cp screen_templates/container_networking/container_networking.json.erb screen_templates/shared/
+cp dashboard_templates/container_networking/container_networking.json.erb dashboard_templates/shared/
+
 bundle exec rake pws:push
 
+rm alert_templates/shared/cf-networking-smoke.json.erb
+rm screen_templates/shared/container_networking.json.erb
+rm dashboard_templates/shared/container_networking.json.erb
 rm -f config/config.yml
