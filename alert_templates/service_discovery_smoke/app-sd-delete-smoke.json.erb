@@ -1,21 +1,21 @@
 {
-	"name": "app-sd delete smoke tests failures (pws)",
-	"type": "metric alert",
-	"query": "min(last_4h):avg:cf_app_sd_smoke.ResolveDeleteSuccess{*} > 0.5",
+  "name": "app-sd delete smoke tests failures (<%= environment %>)",
+  "type": "metric alert",
+  "query": "max(last_4h):avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= diego_deployment %>} > 0.5",
   "message": "smoke test failures indicate removing an app's route and no longer being able to resolve is not functioning @<%= alert_email %>",
-	"tags": [],
-		"timeout_h": 0,
-		"notify_no_data": true,
-		"no_data_timeframe": 120,
-		"notify_audit": true,
-		"require_full_window": true,
-		"new_host_delay": 300,
-		"include_tags": false,
-		"escalation_message": "",
-		"locked": false,
-		"renotify_interval": "0",
-		"evaluation_delay": "",
-		"thresholds": {
-			"critical": 0.5
-		}
+  "tags": [],
+    "timeout_h": 0,
+    "notify_no_data": true,
+    "no_data_timeframe": 120,
+    "notify_audit": true,
+    "require_full_window": false,
+    "new_host_delay": 300,
+    "include_tags": false,
+    "escalation_message": "",
+    "locked": false,
+    "renotify_interval": "0",
+    "evaluation_delay": "",
+    "thresholds": {
+      "critical": 0.5
+    }
 }
