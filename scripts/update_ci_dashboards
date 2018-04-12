@@ -11,7 +11,7 @@ cp dashboard_templates/container_networking/container_networking.json.erb dashbo
 bundle exec rake toque:push
 bundle exec rake pickelhelm:push
 
-// only mitre runs smoke tests
+# only mitre runs smoke tests
 cp alert_templates/cf_networking_smoke/cf-networking-smoke.json.erb alert_templates/shared/
 bundle exec rake mitre:push
 
