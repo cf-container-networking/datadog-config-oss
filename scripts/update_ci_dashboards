@@ -12,20 +12,17 @@ bundle exec rake toque:push
 bundle exec rake pickelhelm:push
 
 # only mitre runs smoke tests
+cp alert_templates/service_discovery_smoke/app-sd-add-smoke.json.erb alert_templates/shared/
+cp alert_templates/service_discovery_smoke/app-sd-delete-smoke.json.erb alert_templates/shared/
+cp screen_templates/service_discovery/service_discovery.json.erb screen_templates/shared/
 cp alert_templates/cf_networking_smoke/cf-networking-smoke.json.erb alert_templates/shared/
 bundle exec rake mitre:push
 
 rm alert_templates/shared/cf-networking-smoke.json.erb
-rm screen_templates/shared/container_networking.json.erb
-rm dashboard_templates/shared/container_networking.json.erb
-
-cp alert_templates/service_discovery_smoke/app-sd-add-smoke.json.erb alert_templates/shared/
-cp alert_templates/service_discovery_smoke/app-sd-delete-smoke.json.erb alert_templates/shared/
-cp screen_templates/service_discovery/service_discovery.json.erb screen_templates/shared/
-bundle exec rake ushanka:push
-bundle exec rake beret:push
-rm screen_templates/shared/service_discovery.json.erb
 rm alert_templates/shared/app-sd-add-smoke.json.erb
 rm alert_templates/shared/app-sd-delete-smoke.json.erb
+rm screen_templates/shared/service_discovery.json.erb
 
+rm screen_templates/shared/container_networking.json.erb
+rm dashboard_templates/shared/container_networking.json.erb
 rm -f config/config.yml
