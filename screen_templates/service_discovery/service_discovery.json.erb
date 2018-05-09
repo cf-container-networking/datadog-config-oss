@@ -1,5 +1,5 @@
 {
-  "board_title": "<%= title %>",
+  "board_title": "<%= title %> Service Discovery",
   "created_by": {
     "access_role": "adm",
     "disabled": false,
@@ -433,7 +433,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{*})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= cf_deployment %>})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -479,7 +479,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{*})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= cf_deployment %>})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -525,7 +525,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{*})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= cf_deployment %>})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -571,7 +571,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{*})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{deployment:<%= cf_deployment %>})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -617,7 +617,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{*})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{deployment:<%= cf_deployment %>})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -663,7 +663,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{*})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{deployment:<%= cf_deployment %>})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
