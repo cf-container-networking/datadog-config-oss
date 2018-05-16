@@ -8,7 +8,7 @@ ln -s ../../pcf-networking-pws/datadog/config.yml config/config.yml
 cp -p screen_templates/service_discovery/service_discovery.json.erb screen_templates/shared/
 cp alert_templates/service_discovery_smoke/app-sd-add-smoke.json.erb alert_templates/shared/
 cp alert_templates/service_discovery_smoke/app-sd-delete-smoke.json.erb alert_templates/shared/
-bundle exec rake pws_sd:push
+bundle exec rake pws:push
 rm screen_templates/shared/service_discovery.json.erb
 rm alert_templates/shared/app-sd-add-smoke.json.erb
 rm alert_templates/shared/app-sd-delete-smoke.json.erb

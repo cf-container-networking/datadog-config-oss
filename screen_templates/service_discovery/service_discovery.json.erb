@@ -1,5 +1,5 @@
 {
-  "board_title": "<%= title %> Service Discovery",
+  "board_title": "Service Discovery",
   "created_by": {
     "access_role": "adm",
     "disabled": false,
@@ -38,7 +38,7 @@
         "autoscale": true,
         "events": [
           {
-            "q": "tags:deployment:<%= cf_deployment %> test_* "
+            "q": "tags:test_*"
           }
         ],
         "requests": [
@@ -47,7 +47,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= cf_deployment %>,job:<%= nats_job %>} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= nats_job %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -81,7 +81,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= cf_deployment %>,job:<%= router_job %>} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= router_job %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -183,7 +183,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:bosh.healthmonitor.system.cpu.sys{deployment:<%= diego_cell_deployment %>,job:<%= diego_cell_job %>} by {job,index}",
+            "q": "avg:bosh.healthmonitor.system.cpu.sys{job:<%= diego_cell_job %>} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -217,7 +217,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>bosh_dns_adapter.uptime{deployment:<%= diego_cell_deployment %>} by {index,job}",
+            "q": "avg:<%= nozzle %>bosh_dns_adapter.uptime{*} by {index,job}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -251,7 +251,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>bosh_dns_adapter.DNSRequestFailures{deployment:<%= cf_deployment %>}",
+            "q": "avg:<%= nozzle %>bosh_dns_adapter.DNSRequestFailures{*}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -285,7 +285,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>service_discovery_controller.dnsRequest{deployment:<%= cf_deployment %>} by {ip}",
+            "q": "avg:<%= nozzle %>service_discovery_controller.dnsRequest{*} by {ip}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -319,7 +319,7 @@
             "conditional_formats": [
 
             ],
-            "q": "avg:<%= nozzle %>service_discovery_controller.uptime{deployment:<%= cf_deployment %>} by {job,index}",
+            "q": "avg:<%= nozzle %>service_discovery_controller.uptime{*} by {job,index}",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -353,7 +353,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_minute(avg:<%= nozzle %>route_emitter.HTTPRouteNATSMessagesEmitted{deployment:<%= diego_cell_deployment %>})",
+            "q": "per_minute(avg:<%= nozzle %>route_emitter.HTTPRouteNATSMessagesEmitted{*})",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -387,7 +387,7 @@
             "conditional_formats": [
 
             ],
-            "q": "per_minute(avg:<%= nozzle %>route_emitter.InternalRouteNATSMessagesEmitted{deployment:<%= diego_cell_deployment %>})",
+            "q": "per_minute(avg:<%= nozzle %>route_emitter.InternalRouteNATSMessagesEmitted{*})",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -433,7 +433,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= cf_deployment %>})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{*})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -479,7 +479,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= cf_deployment %>})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{*})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -525,7 +525,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{deployment:<%= cf_deployment %>})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveDeleteSuccess{*})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -571,7 +571,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{deployment:<%= cf_deployment %>})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{*})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -617,7 +617,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{deployment:<%= cf_deployment %>})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{*})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
@@ -663,7 +663,7 @@
                 "value": "99.9"
               }
             ],
-            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{deployment:<%= cf_deployment %>})*100",
+            "q": "(1-avg:cf_app_sd_smoke.ResolveAddSuccess{*})*100",
             "style": {
               "palette": "dog_classic",
               "type": "solid",
